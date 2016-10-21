@@ -4,5 +4,5 @@ cd $SELF_PATH/../..
 git pull origin master 2>&1
 echo "to reload all scripts run: <yourbotname> die"
 
-echo "test3"
+echo "test4"
 exit 0
