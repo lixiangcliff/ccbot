@@ -5,7 +5,7 @@
 #   They are commented out by default, because most of them are pretty silly and
 #   wouldn't be useful and amusing enough for day to day huboting.
 #   Uncomment the ones you want to try and experiment with.
-# 
+#
 # Commands:
 #   hubot homeip - show current home public ip address
 #
@@ -15,7 +15,7 @@ module.exports = (robot) ->
 
   robot.hear /badger/i, (res) ->
     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
- 
+
   robot.respond /homeip/i, (msg) ->
     hostname = msg.match[1]
     @exec = require('child_process').exec
@@ -26,6 +26,12 @@ module.exports = (robot) ->
       msg.send error
       msg.send stdout
       msg.send stderr
+
+  robot.respond /testip/i, (msg) ->
+    spawn = require('child_process').spawn
+    child = spawn("wget http://ipinfo.io/ip -qO -")
+
+
   #
   # robot.respond /open the (.*) doors/i, (res) ->
   #   doorType = res.match[1]
