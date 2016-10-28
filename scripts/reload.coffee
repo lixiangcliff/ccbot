@@ -25,7 +25,7 @@ module.exports = (robot) ->
   robot.hear /command count/i, (msg) ->
     msg.send "I am aware of #{msg.robot.commands.length} commands"
 
-  robot.respond /reload/i, (msg) ->
+  robot.respond /reload script/i, (msg) ->
     try
       oldCommands = robot.commands
       oldListeners = robot.listeners
