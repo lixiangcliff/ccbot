@@ -39,7 +39,7 @@ module.exports = (robot) ->
   robot.respond /restartccbot/i, (msg) ->
     hostname = msg.match[1]
     @exec = require('child_process').exec
-    command = "/home/cliff/repo/script/bash/restart_ccbot.sh"
+    command = "dir=$(pwd); cd /home/cliff/repo/script/bash/; ./restart_ccbot.sh; cd $dir"
 
     @exec command, (error, stdout, stderr) ->
       msg.send error
