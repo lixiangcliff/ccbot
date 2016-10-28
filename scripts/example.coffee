@@ -57,7 +57,7 @@ module.exports = (robot) ->
       msg.send stdout
       msg.send stderr
 
-  robot.respond /battery/i, (msg) ->
+  robot.respond /bty/i, (msg) ->
     hostname = msg.match[1]
     @exec = require('child_process').exec
     command = "/home/cliff/repo/script/bash/battery_status.sh"
