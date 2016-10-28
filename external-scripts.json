@@ -1,5 +1,6 @@
 [
   "hubot-diagnostics",
+  "hubot-alias",
   "hubot-help",
   "hubot-google-images",
   "hubot-google-translate",
