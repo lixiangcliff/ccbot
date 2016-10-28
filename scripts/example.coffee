@@ -26,6 +26,16 @@ module.exports = (robot) ->
       msg.send stdout
       msg.send stderr
 
+  robot.respond /uprepo (.*)/i, (msg) ->
+    repo = msg.match[1]
+    @exec = require('child_process').exec
+    command = "/home/cliff/repo/script/bash/update_repo.sh " + repo
+
+    @exec command, (error, stdout, stderr) ->
+      msg.send error
+      msg.send stdout
+      msg.send stderr
+
   robot.respond /uprepos/i, (msg) ->
     hostname = msg.match[1]
     @exec = require('child_process').exec
