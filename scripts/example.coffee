@@ -19,13 +19,15 @@ module.exports = (robot) ->
   robot.respond /homeip/i, (msg) ->
     hostname = msg.match[1]
     @exec = require('child_process').exec
-    command = "wget http://ipinfo.io/ip -qO -"
+    #command = "wget http://ipinfo.io/ip -qO -"
+    command = "/home/cliff/repo/script/bash/host_ip.sh"
+
     #msg.send "Current home ip is: #{command}."
 
     @exec command, (error, stdout, stderr) ->
-#      msg.send error
+      msg.send error
       msg.send stdout
-#      msg.send stderr
+      msg.send stderr
 
   robot.respond /testip/i, (msg) ->
     spawn = require('child_process').spawn
