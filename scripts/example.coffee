@@ -36,15 +36,15 @@ module.exports = (robot) ->
       msg.send stdout
       msg.send stderr
 
-  robot.respond /restartccbot/i, (msg) ->
-    hostname = msg.match[1]
-    @exec = require('child_process').exec
-    command = "dir=$(pwd); cd /home/cliff/repo/script/bash/; ./restart_ccbot.sh; cd $dir"
-
-    @exec command, (error, stdout, stderr) ->
-      msg.send error
-      msg.send stdout
-      msg.send stderr
+#  robot.respond /restartccbot/i, (msg) ->
+#    hostname = msg.match[1]
+#    @exec = require('child_process').exec
+#    command = "dir=$(pwd); cd /home/cliff/repo/script/bash/; ./restart_ccbot.sh; cd $dir"
+#
+#    @exec command, (error, stdout, stderr) ->
+#      msg.send error
+#      msg.send stdout
+#      msg.send stderr
 
 
   robot.respond /hsts/i, (msg) ->
@@ -57,7 +57,7 @@ module.exports = (robot) ->
       msg.send stdout
       msg.send stderr
 
-  robot.respond /bty/i, (msg) ->
+  robot.respond /battery/i, (msg) ->
     hostname = msg.match[1]
     @exec = require('child_process').exec
     command = "/home/cliff/repo/script/bash/battery_status.sh"
