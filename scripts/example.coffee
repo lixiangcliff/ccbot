@@ -20,7 +20,7 @@ module.exports = (robot) ->
     hostname = msg.match[1]
     @exec = require('child_process').exec
     command = "wget http://ipinfo.io/ip -qO -"
-    #msg.send "Current home ip is: #{command}."
+    msg.send "Current home ip is: #{command}."
 
 #    @exec command, (error, stdout, stderr) ->
 #      msg.send error
