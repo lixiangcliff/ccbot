@@ -7,7 +7,16 @@
 #   Uncomment the ones you want to try and experiment with.
 #
 # Commands:
-#   hubot homeip - show current home public ip address
+#   hubot ip - show current host's public ip address
+
+#   hubot uprepo xxx - update repo xxx under /home/cliff/repo/ (xxx can be the prefix of the repo name)
+
+#   hubot uprepos - update all repos under /home/cliff/repo/
+
+#   hubot hsts - show current host's status(cpu, memory and disk usage; temperature)
+
+#   hubot battery - show current host's battery status
+
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
