@@ -17,7 +17,6 @@ module.exports = (robot) ->
     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
 
   robot.respond /ip/i, (msg) ->
-    hostname = msg.match[1]
     @exec = require('child_process').exec
     command = "/home/cliff/repo/script/bash/host_ip.sh"
 
@@ -37,9 +36,26 @@ module.exports = (robot) ->
       msg.send stderr
 
   robot.respond /uprepos/i, (msg) ->
-    hostname = msg.match[1]
     @exec = require('child_process').exec
     command = "/home/cliff/repo/script/bash/update_repos.sh"
+
+    @exec command, (error, stdout, stderr) ->
+      msg.send error
+      msg.send stdout
+      msg.send stderr
+
+  robot.respond /hsts/i, (msg) ->
+    @exec = require('child_process').exec
+    command = "/home/cliff/repo/script/bash/host_status.sh"
+
+    @exec command, (error, stdout, stderr) ->
+      msg.send error
+      msg.send stdout
+      msg.send stderr
+
+  robot.respond /battery/i, (msg) ->
+    @exec = require('child_process').exec
+    command = "/home/cliff/repo/script/bash/battery_status.sh"
 
     @exec command, (error, stdout, stderr) ->
       msg.send error
@@ -57,25 +73,6 @@ module.exports = (robot) ->
 #      msg.send stderr
 
 
-  robot.respond /hsts/i, (msg) ->
-    hostname = msg.match[1]
-    @exec = require('child_process').exec
-    command = "/home/cliff/repo/script/bash/host_status.sh"
-
-    @exec command, (error, stdout, stderr) ->
-      msg.send error
-      msg.send stdout
-      msg.send stderr
-
-  robot.respond /battery/i, (msg) ->
-    hostname = msg.match[1]
-    @exec = require('child_process').exec
-    command = "/home/cliff/repo/script/bash/battery_status.sh"
-
-    @exec command, (error, stdout, stderr) ->
-      msg.send error
-      msg.send stdout
-      msg.send stderr
   #
   # robot.respond /open the (.*) doors/i, (res) ->
   #   doorType = res.match[1]
