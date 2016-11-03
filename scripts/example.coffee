@@ -8,15 +8,11 @@
 #
 # Commands:
 #   hubot ip - show current host's public ip address
-
 #   hubot uprepo xxx - update repo xxx under /home/cliff/repo/ (xxx can be the prefix of the repo name)
-
 #   hubot uprepos - update all repos under /home/cliff/repo/
-
 #   hubot hsts - show current host's status(cpu, memory and disk usage; temperature)
-
 #   hubot battery - show current host's battery status
-
+#   hubot psuse - show processes consume most mem and cpu
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
@@ -65,6 +61,15 @@ module.exports = (robot) ->
   robot.respond /battery/i, (msg) ->
     @exec = require('child_process').exec
     command = "/home/cliff/repo/script/bash/battery_status.sh"
+
+    @exec command, (error, stdout, stderr) ->
+      msg.send error
+      msg.send stdout
+      msg.send stderr
+
+  robot.respond /psuse/i, (msg) ->
+    @exec = require('child_process').exec
+    command = "/home/cliff/repo/script/bash/process_usage.sh"
 
     @exec command, (error, stdout, stderr) ->
       msg.send error
